@@ -30,5 +30,6 @@ public class User {
     @Column(nullable = false, unique = true, length = 11)
     private String document; // Representando o CPF para validações futuras
 
-    // O relacionamento com a Carteira (Wallet) será feito assim que criarmos a entidade Wallet
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Wallet wallet;
 }
